@@ -30,8 +30,8 @@ function TaskList() {
     const removeTask = id => {
         const removeArr = [...tasks].filter(task => task.id !== id)
 
-        setTasks(removeArr)
-    }
+        setTasks(removeArr);
+    };
 
     //setting the isComplete value to opposite upon checking the complete button
     const completeTask = id => {
@@ -49,7 +49,9 @@ function TaskList() {
         <div>
             <h1>What Do You Need To Do?</h1>
             <TaskForm onSubmit={addTask}/>
-            <Task tasks={tasks} completeTask={completeTask}
+            <Task
+            tasks={tasks}
+            completeTask={completeTask}
             removeTask={removeTask}
             updateTask={updateTask}/>
         </div>

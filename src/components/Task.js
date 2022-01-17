@@ -3,6 +3,8 @@ import TaskForm from './TaskForm';
 import TaskList from './TaskList';
 import {FaRegCheckCircle} from "react-icons/fa";
 import {FaPen} from "react-icons/fa";
+import {FaRegTimesCircle} from "react-icons/fa";
+
 
 
 function Task({tasks, completeTask, removeTask, updateTask}) {
@@ -27,13 +29,15 @@ function Task({tasks, completeTask, removeTask, updateTask}) {
         <div className = {task.isComplete ? "task-row complete" : "task-row"}
         key={index}>
 
-            <div key={task.id} onClick={() => completeTask(task.id)}>
+            <div key={task.id} onClick={() =>
+                completeTask(task.id)}>
                 {task.text}
             </div>
 
             <div className="task-icons">
                 <FaRegCheckCircle 
-                onClick={() => removeTask(task.id)}
+                className ="complete-task-icon"/>
+                <FaRegTimesCircle onClick={() => removeTask(task.id)}
                 className ="delete-task-icon"/>
                 <FaPen
                 onClick={() => setEdit({id: task.id, value:task.text})}
